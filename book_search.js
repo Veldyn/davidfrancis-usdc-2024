@@ -23,7 +23,7 @@
      * return the appropriate object here. */
 
     //First, convert scannedTextObject to JS Object for parsing:
-    const objdata = JSON.parse(JSON.stringify(scannedTextObj));
+    const inputData = JSON.parse(JSON.stringify(scannedTextObj));
 
     //Next we need to define our results that we will be returning.
     //The function was provided for us.
@@ -34,13 +34,13 @@
         };
     
     //Next, we need to write a for-loop to iterate over the array of input data:
-    for (const objdata of scannedTextObj) {
+    for (const inputData of scannedTextObj) {
         //And another for-loop to iterate through the content array
-        for (const Content of objdata.Content) {
+        for (const Content of inputData.Content) {
             if (Content.Text.includes(searchTerm)) {
                 //Push the following to 'Results' array if the text includes the search term:
                 result.Results.push({
-                    ISBN: objdata.ISBN,
+                    ISBN: inputData.ISBN,
                     Page: Content.Page,
                     Line: Content.Line,
                 });
